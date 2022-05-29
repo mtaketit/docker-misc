@@ -1,6 +1,11 @@
 ### Official Page
 [Docker Engine Install](https://docs.docker.com/engine/install/ubuntu/#uninstall-docker-engine)
 
+
+### Installation
+
+#### Remove previous version
+
 ```console
 sudo apt-get remove docker docker-engine docker.io containerd runc
 ```
@@ -25,15 +30,15 @@ sudo apt-get remove docker docker-engine docker.io containerd runc
 
     ```console
     sudo mkdir -p /etc/apt/keyrings
-    curl -fsSL {{ download-url-base }}/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
     ```
 
 3.  Use the following command to set up the repository:
 
     ```console
     echo \
-      "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] {{ download-url-base }} \
-      $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     ```
 
 #### Install Docker Engine
